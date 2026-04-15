@@ -18,6 +18,13 @@ make angrymiao2:vial
 
 编译完成后会生成对应固件文件（例如 `angrymiao2_vial.bin`）。
 
+## 固件文件位置
+
+原始固件和适配 SignalRGB 的固件都放在仓库根目录的 `firmware/` 文件夹下。
+
+- 原始固件：`firmware/怒喵官方固件/angrymiao_804_vial.bin`
+- 适配 SignalRGB 的固件：`firmware/angrymiao_signalrgb_0_1.bin`
+
 ## SignalRGB 脚本使用方法
 
 仓库内脚本文件：
