@@ -1,36 +1,42 @@
-# Quantum Mechanical Keyboard Firmware
+# Neon 80 Plus Firmware
 
-[![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
-[![Discord](https://img.shields.io/discord/440868230475677696.svg)](https://discord.gg/Uq7gcHh)
-[![Docs Status](https://img.shields.io/badge/docs-ready-orange.svg)](https://docs.qmk.fm)
-[![GitHub contributors](https://img.shields.io/github/contributors/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/pulse/monthly)
-[![GitHub forks](https://img.shields.io/github/forks/qmk/qmk_firmware.svg?style=social&label=Fork)](https://github.com/qmk/qmk_firmware/)
+项目基于怒喵（Angry Miao）提供的开源代码进行开发与适配。
 
-This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers, and more specifically, the [OLKB product line](https://olkb.com), the [ErgoDox EZ](https://ergodox-ez.com) keyboard, and the [Clueboard product line](https://clueboard.co).
+## 功能说明
 
-## Documentation
+- 基于 QMK 固件框架
+- 使用 `vial` keymap 编译，支持 Vial 配置
+- 已适配 SignalRGB 软件
 
-* [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)
+## 编译
 
-The docs are powered by [Docsify](https://docsify.js.org/) and hosted on [GitHub](/docs/). They are also viewable offline; see [Previewing the Documentation](https://docs.qmk.fm/#/contributing?id=previewing-the-documentation) for more details.
+在仓库根目录执行：
 
-You can request changes by making a fork and opening a [pull request](https://github.com/qmk/qmk_firmware/pulls), or by clicking the "Edit this page" link at the bottom of any page.
+```bash
+make angrymiao2:vial
+```
 
-## Supported Keyboards
+编译完成后会生成对应固件文件（例如 `angrymiao2_vial.bin`）。
 
-* [Planck](/keyboards/planck/)
-* [Preonic](/keyboards/preonic/)
-* [ErgoDox EZ](/keyboards/ergodox_ez/)
-* [Clueboard](/keyboards/clueboard/)
-* [Cluepad](/keyboards/clueboard/17/)
-* [Atreus](/keyboards/atreus/)
+## SignalRGB 脚本使用方法
 
-The project also includes community support for [lots of other keyboards](/keyboards/).
+仓库内脚本文件：
 
-## Maintainers
+- `keyboards/angrymiao2/signalrgb_neon80.js`
 
-QMK is developed and maintained by Jack Humbert of OLKB with contributions from the community, and of course, [Hasu](https://github.com/tmk). The OLKB product firmwares are maintained by [Jack Humbert](https://github.com/jackhumbert), the Ergodox EZ by [ZSA Technology Labs](https://github.com/zsa), the Clueboard by [Zach White](https://github.com/skullydazed), and the Atreus by [Phil Hagelberg](https://github.com/technomancy).
+请将该文件复制到 SignalRGB 插件目录，并命名为 `AM_Neon_80.js`：
 
-## Official Website
+- `C:\Users\<你的用户名>\Documents\WhirlwindFX\Plugins\AM_Neon_80.js`
 
-[qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
+PowerShell 示例命令：
+
+```powershell
+Copy-Item -LiteralPath ".\keyboards\angrymiao2\signalrgb_neon80.js" -Destination "$env:USERPROFILE\Documents\WhirlwindFX\Plugins\AM_Neon_80.js" -Force
+```
+
+## 使用与刷机注意事项
+
+1. 使用 Vial 前，请先退出 SignalRGB 软件。
+2. 刷机工具使用 QMK Toolbox。
+3. 键盘进入 DFU 模式的方法：按住 `Esc` 键上电（插入 USB），MCU选择ATmega32U4。
+4. 进入 DFU 后，在 QMK Toolbox 中选择固件并烧录。

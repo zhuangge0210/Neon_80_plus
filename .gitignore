@@ -96,3 +96,5 @@ compile_commands.json
 .cache/
 .claude
 .vscode
+!firmware/
+!firmware/**/*.bin
